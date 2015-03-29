@@ -25,13 +25,24 @@
 
 			<%= link_to image_tag("", alt: ""), '' %> <br><br><br>
 
+			<aside class= "span4">
+
 			<h6>Twitter Feed</h6>
-			<%= @name %>
-			<%= @address %><br><br>
+				<% for i in 1..10 do %>
+					<p>
+				 	<%= @results['views']['entities']['data'][i]['raw']['text'] %>
+				 	<br>
+				 	<b><%= @results['views']['entities']['data'][i]['raw']['user']['name'] %></b>
+				 	<br>
+				 	<i><%= @results['views']['entities']['data'][i]['raw']['user']['created_at'] %></i>
+				 	</p>
+	 	
+				<% end %>
 
+				<%= link_to "Sign up now!", signup_path, class: "btn btn-medium btn-primary" %>
 
-		<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+			</aside>
 	</div>
-	
+
 <% end %>
 </body>

@@ -5,10 +5,10 @@ class StaticPagesController < ApplicationController
       @post = current_user.posts.build 
       @feed_items = current_user.feed.paginate(page: params[:page])
     end
-    results = HTTParty.get("https://search-proxy.spredfast.com/search.jsonhttps://search-proxy.spredfast.com/search.json?q=telemundo&filter.start=-1d&filter.finish=0&view.entities.limit=20")
-    stream = results
-    @tweets = stream['views']['entities']['data']['raw']['text']
-    @address = store1['store_info']['address']
+    @results = HTTParty.get("http://search-proxy.spredfast.com/search.json?q=telemundo&filter.start=-3d&filter.finish=0&view.entities.limit=20")
+    #@tweets = results['views']['entities']['data'][x]['raw']['text']
+    #@poster = results['views']['entities']['data'][x]['raw']['user']['name']
+    
   end
 
   def help
