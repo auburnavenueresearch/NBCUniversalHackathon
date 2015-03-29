@@ -1,0 +1,37 @@
+<body id="home">
+
+<% if signed_in? %>
+	<div class="row">
+
+		<aside class="span4">
+			<section>
+				<%= render 'shared/user_info' %>
+			</section>
+			<section>
+				<%= render 'shared/stats' %>
+			</section>
+			<section>
+				<%= render 'shared/post_form' %>
+			</section>
+		</aside>
+		<div class="span8">
+			<h3>Log Feed</h3>
+			<%= render 'shared/feed' %>
+		</div>
+	</div>
+<% else %>
+	
+	<div class="front">
+
+			<%= link_to image_tag("", alt: ""), '' %> <br><br><br>
+
+			<h6>Twitter Feed</h6>
+			<%= @name %>
+			<%= @address %><br><br>
+
+
+		<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+	</div>
+	
+<% end %>
+</body>
